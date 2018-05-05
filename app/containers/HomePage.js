@@ -25,6 +25,11 @@ import {
   font,
 } from "../components/Broadway/styles";
 
+const NativeButton = styled.button`
+  font-size: 12px; 
+  margin: 0.5em 0.3em;`;
+
+
 injectGlobal`
 
   body {
@@ -99,13 +104,13 @@ class Broadway extends React.Component {
     return (
       <div>
         {buttonsArray.map(color =>
-          <Button
+          <NativeButton
             active={this.state.color == color}
             onClick={() => this.setState({ color })}
             key={color}
           >
             {color}
-          </Button>
+          </NativeButton>
         )}
       </div>
     );
@@ -196,35 +201,35 @@ class Broadway extends React.Component {
               <Console>{String(this.state.consoleText.join("\n"))}</Console>
               <Row>
                 <ButtonGroup>
-                  <Button onClick={() => this.handleCopy()}>Copy (c)</Button>
-                  <Button onClick={() => this.handleUndo()}>Undo (u)</Button>
-                  <Button onClick={() => this.clearConsole()}>Clear</Button>
+                  <NativeButton onClick={() => this.handleCopy()}>Copy (c)</NativeButton>
+                  <NativeButton onClick={() => this.handleUndo()}>Undo (u)</NativeButton>
+                  <NativeButton onClick={() => this.clearConsole()}>Clear</NativeButton>
                 </ButtonGroup>
                 <ButtonGroup>
-                  <Button
+                  <NativeButton
                     active={this.state.visibleArt}
                     onClick={() => this.artToggle()}
                   >
                     Art (a)
-                  </Button>
-                  <Button
+                  </NativeButton>
+                  <NativeButton
                     active={this.state.visibleGrid}
                     onClick={() => this.gridToggle()}
                   >
                     Grid (g)
-                  </Button>
-                  <Button
+                  </NativeButton>
+                  <NativeButton
                     active={this.state.visibleMarks}
                     onClick={() => this.marksToggle()}
                   >
                     Marks (m)
-                  </Button>
-                  <Button
+                  </NativeButton>
+                  <NativeButton
                     active={this.state.visibleGridItems}
                     onClick={() => this.gridItemsToggle()}
                   >
                     Items (i)
-                  </Button>
+                  </NativeButton>
                 </ButtonGroup>
                 <ButtonGroup>
                   {this.colorButtons(artColorButtonLabels)}

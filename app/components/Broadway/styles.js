@@ -20,6 +20,8 @@ export const colors = {
   blue: '#4163b6',
   lightgrey: '#dddddb',
   white: '#f2f3ee',
+  clay: '#233239',
+  conifer: '#bae465',
 }
 
 export const EphemeralRectangle = styled.div`
@@ -192,8 +194,8 @@ export const Console = styled.div`
   max-height: 100px;
   overflow-y: scroll;
   font-size: 6px;
-  background-color: black;
-  color: green;
+  background-color: ${colors.clay};
+  color: ${colors.conifer};
   margin-bottom: 8px;
 `
 
