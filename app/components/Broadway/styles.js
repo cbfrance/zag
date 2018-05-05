@@ -223,12 +223,16 @@ export const font = {
 export const Console = styled.div`
   overflow-y: auto;
   font: ${font.mono};
-  background-color: ${colors.clay};
-  color: ${colors.conifer};
   margin-bottom: 8px;
   min-height: 100vh;
-  width: 300px;
+  width: 350px;
   padding: 1em;
+
+  pre {
+    background-color: inherit!important;
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
   &:before {
     content: "JSON output";
     color: #ff625f;

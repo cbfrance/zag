@@ -6,6 +6,9 @@ import ReactDOM from "react-dom";
 import SelectMixBlendMode from "../components/Broadway/SelectMixBlendMode";
 import { convertToGrid, copyToClipboard } from "../components/Broadway/helpers";
 import { HotKeys } from "react-hotkeys";
+import SyntaxHighlighter from 'react-syntax-highlighter/prism';
+import { solarizedlight } from 'react-syntax-highlighter/styles/prism';
+
 import Grid from "../components/Broadway/Grid";
 import {
   boxColor,
@@ -207,16 +210,20 @@ class Broadway extends React.Component {
               </Container>
             </Main>
             <SidebarRight>
-              <Console>{String(this.state.consoleText.join("\n"))}</Console>
+              <Console>
+
+              <ButtonGroup>
+                <Row><NativeButton onClick={() => this.handleCopy()}>Copy (c)</NativeButton>
+                                <NativeButton onClick={() => this.handleUndo()}>Undo (u)</NativeButton>
+                                <NativeButton onClick={() => this.clearConsole()}>Clear</NativeButton></Row>
+              </ButtonGroup>
+              <SyntaxHighlighter language='json' style={solarizedlight}>{String(this.state.consoleText.join("\n"))}</SyntaxHighlighter>
+                
+                </Console>
             </SidebarRight>
             <SidebarLeft>
               <ToolsPanel>
-                
-                  <ButtonGroup>
-                    <NativeButton onClick={() => this.handleCopy()}>Copy (c)</NativeButton>
-                    <NativeButton onClick={() => this.handleUndo()}>Undo (u)</NativeButton>
-                    <NativeButton onClick={() => this.clearConsole()}>Clear</NativeButton>
-                  </ButtonGroup>
+              
 
                   <ButtonGroup>
                     <h3>Toggle view</h3>
