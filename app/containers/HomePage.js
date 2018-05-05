@@ -1,12 +1,12 @@
 import React from "react";
 import ReactCursorPosition from "react-cursor-position";
 import styled, { injectGlobal } from "styled-components";
-import Tooltip from "../components/xyz/Tooltip";
+import Tooltip from "../components/Broadway/Tooltip";
 import ReactDOM from "react-dom";
-import SelectMixBlendMode from "../components/xyz/SelectMixBlendMode";
-import { convertToGrid, copyToClipboard } from "../components/xyz/helpers";
+import SelectMixBlendMode from "../components/Broadway/SelectMixBlendMode";
+import { convertToGrid, copyToClipboard } from "../components/Broadway/helpers";
 import { HotKeys } from "react-hotkeys";
-import Grid from "../components/xyz/Grid";
+import Grid from "../components/Broadway/Grid";
 import {
   boxColor,
   gridUnit,
@@ -21,10 +21,19 @@ import {
   Console,
   ToolsPanel,
   Title,
-  Container
-} from "../components/xyz/styles";
+  Container,
+  font,
+} from "../components/Broadway/styles";
 
 injectGlobal`
+
+  body {
+    font: ${font.body2};
+    font-size: 16px;
+    margin: 0;
+    border: 10px solid black;
+  }
+
   * {
     outline: none;
     box-sizing: border-box;
