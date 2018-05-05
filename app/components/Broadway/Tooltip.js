@@ -1,9 +1,9 @@
-import React from 'react'
-import { convertToGrid } from './helpers'
-import styled from 'styled-components'
+import styled from 'styled-components';
+import React from 'react';
+import { convertToGrid } from './helpers';
 
 const Label = styled.div`
-    display: ${props => (props.display ? 'none' : 'block')};
+    display: ${props => props.display};
     position: absolute;
     background-color: black;
     color: white;
@@ -12,26 +12,29 @@ const Label = styled.div`
     font-size: 8px;
     transition: display 0.4s;
     z-index: 4;
-`
+`;
 
-const labelOffset = 2
+const labelOffset = 2;
 
 // Tooltip is the tooltip that shows the current x/y position, converted to grid columns
 const Tooltip = props => {
-    // A parent component, ReactCursorPosition, passes in these props:
-    // For more options see
-    // https://github.com/ethanselzer/react-cursor-position
-    const { position: { x = 0, y = 0 } = {}, isPositionOutside = false } = props
+  // A parent component, ReactCursorPosition, passes in these props:
+  // For more options see
+  // https://github.com/ethanselzer/react-cursor-position
+  const { position: { x = 0, y = 0 } = {}, isPositionOutside = false } = props;
 
-    return (
-        <Label display={isPositionOutside} style={{ top: y + labelOffset, left: x + labelOffset }}>
-            {convertToGrid(y, x)}
-        </Label>
-    )
-}
+  return (
+    <Label
+      display={isPositionOutside ? 'none' : 'block'}
+      style={{ top: y + labelOffset, left: x + labelOffset }}
+    >
+      {convertToGrid(y, x)}
+    </Label>
+  );
+};
 
 Tooltip.defaultProps = {
-    shouldShowIsActive: true,
-}
+  shouldShowIsActive: true
+};
 
-export default Tooltip
+export default Tooltip;

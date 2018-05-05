@@ -24,7 +24,10 @@ import {
   Container,
   font,
   OuterContainer,
-  Item,
+  Main, 
+  Header, 
+  SidebarRight, 
+  SidebarLeft,
 } from "../components/Broadway/styles";
 
 const NativeButton = styled.button`
@@ -180,10 +183,10 @@ class Broadway extends React.Component {
       <div>
         <HotKeys ref={this.autofocus} handlers={hotkeyHandlers}>
           <OuterContainer>
-            <Item area="header">
+            <Header>
               <Title>Broadway Boogie Woogie (1942-43) by Piet Mondrian</Title>
-            </Item>
-            <Item area="main" zIndex="1">
+            </Header>
+            <Main>
               <Container>
                 <ReactCursorPosition>
                   <Tooltip />
@@ -202,19 +205,21 @@ class Broadway extends React.Component {
                   />
                 </ReactCursorPosition>
               </Container>
-            </Item>
-            <Item area="sidebar">
+            </Main>
+            <SidebarRight>
               <Console>{String(this.state.consoleText.join("\n"))}</Console>
-            </Item>
-            <Item area="footer"  zIndex="1">
+            </SidebarRight>
+            <SidebarLeft>
               <ToolsPanel>
-                <Row>
+                
                   <ButtonGroup>
                     <NativeButton onClick={() => this.handleCopy()}>Copy (c)</NativeButton>
                     <NativeButton onClick={() => this.handleUndo()}>Undo (u)</NativeButton>
                     <NativeButton onClick={() => this.clearConsole()}>Clear</NativeButton>
                   </ButtonGroup>
+
                   <ButtonGroup>
+                    <h3>Toggle view</h3>
                     <NativeButton
                       active={this.state.visibleArt}
                       onClick={() => this.artToggle()}
@@ -240,17 +245,19 @@ class Broadway extends React.Component {
                       Items (i)
                     </NativeButton>
                   </ButtonGroup>
+
                   <ButtonGroup>
+                    <h3>Set grid-item color</h3>
                     {this.colorButtons(artColorButtonLabels)}
                   </ButtonGroup>
-                </Row>
-  
+                
+                  <h3>Set mix-blend mode</h3>
                 <SelectMixBlendMode
                   handler={this.mixBlendModeChange}
                   mode={this.state.mixBlendMode}
                 />
               </ToolsPanel>
-            </Item>
+            </SidebarLeft>
           </OuterContainer>
         </HotKeys>
       </div>

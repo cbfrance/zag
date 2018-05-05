@@ -22,6 +22,7 @@ export const colors = {
   white: '#f2f3ee',
   clay: '#233239',
   conifer: '#bae465',
+  black87: 'rgba(0,0,0,0.87)',
 }
 
 export const EphemeralRectangle = styled.div`
@@ -163,12 +164,13 @@ export const Art = styled.div`
   z-index: 0;
 `
 export const ButtonGroup = styled.div`
-  margin-right: 16px;
-  padding-right: 8px;
-  border-right: 1px solid #c8c8c8;
+  padding: 16px 0;
+  border-bottom: 1px solid #c8c8c8;
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  flex-wrap: nowrap;
   &:last-of-type {
     border-right-width: 0;
   }
@@ -218,26 +220,72 @@ export const font = {
   mono: `400 13px/16px ${fontStack.mono};`,
 }
 
-
-export const OuterContainer = styled.div`
-  display: grid;
-  height: 100vh;
-  grid-template-areas:
-  'header header'
-  'main sidebar'
-  'footer footer';
-  & > * {
-    border: 1px solid aqua;
-  }
-`;
-
-
 export const Console = styled.div`
   overflow-y: auto;
   font: ${font.mono};
   background-color: ${colors.clay};
   color: ${colors.conifer};
   margin-bottom: 8px;
-  height: 100%;
-  width: 400px;
+  min-height: 100vh;
+  width: 300px;
+  padding: 1em;
+  &:before {
+    content: "JSON output";
+    color: #ff625f;
+    display: block
+  }
 `
+
+
+// Dot background
+const dotSize = "2px";
+const dotSpace = "22px";
+
+const DotBackground = styled.div`
+  background-color: ${colors.black};
+  background:
+      linear-gradient(90deg, ${colors.blue} (${dotSpace} - ${dotSize}), transparent 1%) center,
+      linear-gradient($bg-color (${dotSpace} - ${dotSize}), transparent 1%) center,
+      $dot-color;
+    background-size: ${dotSpace} ${dotSpace};
+`;
+
+// Outer layout (app chrome)
+//
+export const OuterContainer = DotBackground.extend`
+  display: grid;
+  min-height: 100vh;
+  align-items: start;
+  > * {
+    border: 1px solid ${colors.lightgrey};
+  }
+  grid-template-areas:
+    'header header header'
+    'sidebarLeft main sidebarRight'
+`;
+
+export const SidebarLeft = styled.div`
+  grid-area: sidebarLeft;
+  width: 200px;
+  border-right: 1px solid ${colors.lightgrey};
+`;
+
+export const SidebarRight = styled.div`
+  grid-area: sidebarRight;
+  width: 200px;
+  border-left: 1px solid ${colors.lightgrey};
+`;
+
+export const Main = styled.div`
+  grid-area: main;
+`;
+
+export const Header = styled.div`
+  grid-area: header;  
+  height: 100px;
+  border-bottom: 1px solid ${colors.lightgrey};
+  display: flex; 
+  flex-align: center;
+  padding: 1em;
+`;
+
