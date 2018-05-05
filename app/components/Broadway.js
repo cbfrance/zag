@@ -1,12 +1,12 @@
 import React from "react";
 import ReactCursorPosition from "react-cursor-position";
 import styled, { injectGlobal } from "styled-components";
-import Tooltip from "../components/xyz/Tooltip";
+import Tooltip from "./xyz/Tooltip";
 import ReactDOM from "react-dom";
-import SelectMixBlendMode from "../components/xyz/SelectMixBlendMode";
-import { convertToGrid, copyToClipboard } from "../components/xyz/helpers";
+import SelectMixBlendMode from "./xyz/SelectMixBlendMode";
+import { convertToGrid, copyToClipboard } from "./xyz/helpers";
 import { HotKeys } from "react-hotkeys";
-import Grid from "../components/xyz/Grid";
+import Grid from "./xyz/Grid";
 import {
   boxColor,
   gridUnit,
@@ -22,7 +22,7 @@ import {
   ToolsPanel,
   Title,
   Container
-} from "../components/xyz/styles";
+} from "./xyz/styles";
 
 injectGlobal`
   * {

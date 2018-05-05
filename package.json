@@ -192,15 +192,18 @@
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "react": "^16.2.0",
+    "react-cursor-position": "^2.4.1",
     "react-dom": "^16.2.0",
     "react-hot-loader": "^4.0.0-beta.13",
+    "react-hotkeys": "^1.1.4",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "source-map-support": "^0.5.3"
+    "source-map-support": "^0.5.3",
+    "styled-components": "^3.2.6"
   },
   "devEngines": {
     "node": ">=7.x",
