@@ -23,6 +23,8 @@ import {
   Title,
   Container,
   font,
+  OuterContainer,
+  Item,
 } from "../components/Broadway/styles";
 
 const NativeButton = styled.button`
@@ -36,7 +38,6 @@ injectGlobal`
     font: ${font.body2};
     font-size: 16px;
     margin: 0;
-    border: 10px solid black;
   }
 
   * {
@@ -177,72 +178,81 @@ class Broadway extends React.Component {
 
     return (
       <div>
-        <Title>Broadway Boogie Woogie (1942-43) by Piet Mondrian</Title>
-        <Container>
-          <HotKeys ref={this.autofocus} handlers={hotkeyHandlers}>
-            <ReactCursorPosition>
-              <Tooltip />
-              <GridVisual visibleGrid={this.state.visibleGrid} />
-              <Art visibleArt={this.state.visibleArt} />
-              <Grid
-                handleMouseDown={this.handleMouseDown}
-                handleMouseUp={this.handleMouseUp}
-                handleMouseMove={this.handleMouseMove}
-                visibleMarks={this.state.visibleMarks}
-                visibleGridItems={this.state.visibleGridItems}
-                mixBlendMode={this.state.mixBlendMode}
-                firstCoordinates={this.state.firstCoordinates}
-                secondCoordinates={this.state.secondCoordinates}
-                drawing={this.state.drawing}
-              />
-            </ReactCursorPosition>
-
-            <ToolsPanel>
+        <HotKeys ref={this.autofocus} handlers={hotkeyHandlers}>
+          <OuterContainer>
+            <Item area="header">
+              <Title>Broadway Boogie Woogie (1942-43) by Piet Mondrian</Title>
+            </Item>
+            <Item area="main" zIndex="1">
+              <Container>
+                <ReactCursorPosition>
+                  <Tooltip />
+                  <GridVisual visibleGrid={this.state.visibleGrid} />
+                  <Art visibleArt={this.state.visibleArt} />
+                  <Grid
+                    handleMouseDown={this.handleMouseDown}
+                    handleMouseUp={this.handleMouseUp}
+                    handleMouseMove={this.handleMouseMove}
+                    visibleMarks={this.state.visibleMarks}
+                    visibleGridItems={this.state.visibleGridItems}
+                    mixBlendMode={this.state.mixBlendMode}
+                    firstCoordinates={this.state.firstCoordinates}
+                    secondCoordinates={this.state.secondCoordinates}
+                    drawing={this.state.drawing}
+                  />
+                </ReactCursorPosition>
+              </Container>
+            </Item>
+            <Item area="sidebar">
               <Console>{String(this.state.consoleText.join("\n"))}</Console>
-              <Row>
-                <ButtonGroup>
-                  <NativeButton onClick={() => this.handleCopy()}>Copy (c)</NativeButton>
-                  <NativeButton onClick={() => this.handleUndo()}>Undo (u)</NativeButton>
-                  <NativeButton onClick={() => this.clearConsole()}>Clear</NativeButton>
-                </ButtonGroup>
-                <ButtonGroup>
-                  <NativeButton
-                    active={this.state.visibleArt}
-                    onClick={() => this.artToggle()}
-                  >
-                    Art (a)
-                  </NativeButton>
-                  <NativeButton
-                    active={this.state.visibleGrid}
-                    onClick={() => this.gridToggle()}
-                  >
-                    Grid (g)
-                  </NativeButton>
-                  <NativeButton
-                    active={this.state.visibleMarks}
-                    onClick={() => this.marksToggle()}
-                  >
-                    Marks (m)
-                  </NativeButton>
-                  <NativeButton
-                    active={this.state.visibleGridItems}
-                    onClick={() => this.gridItemsToggle()}
-                  >
-                    Items (i)
-                  </NativeButton>
-                </ButtonGroup>
-                <ButtonGroup>
-                  {this.colorButtons(artColorButtonLabels)}
-                </ButtonGroup>
-              </Row>
-
-              <SelectMixBlendMode
-                handler={this.mixBlendModeChange}
-                mode={this.state.mixBlendMode}
-              />
-            </ToolsPanel>
-          </HotKeys>
-        </Container>
+            </Item>
+            <Item area="footer"  zIndex="1">
+              <ToolsPanel>
+                <Row>
+                  <ButtonGroup>
+                    <NativeButton onClick={() => this.handleCopy()}>Copy (c)</NativeButton>
+                    <NativeButton onClick={() => this.handleUndo()}>Undo (u)</NativeButton>
+                    <NativeButton onClick={() => this.clearConsole()}>Clear</NativeButton>
+                  </ButtonGroup>
+                  <ButtonGroup>
+                    <NativeButton
+                      active={this.state.visibleArt}
+                      onClick={() => this.artToggle()}
+                    >
+                      Art (a)
+                    </NativeButton>
+                    <NativeButton
+                      active={this.state.visibleGrid}
+                      onClick={() => this.gridToggle()}
+                    >
+                      Grid (g)
+                    </NativeButton>
+                    <NativeButton
+                      active={this.state.visibleMarks}
+                      onClick={() => this.marksToggle()}
+                    >
+                      Marks (m)
+                    </NativeButton>
+                    <NativeButton
+                      active={this.state.visibleGridItems}
+                      onClick={() => this.gridItemsToggle()}
+                    >
+                      Items (i)
+                    </NativeButton>
+                  </ButtonGroup>
+                  <ButtonGroup>
+                    {this.colorButtons(artColorButtonLabels)}
+                  </ButtonGroup>
+                </Row>
+  
+                <SelectMixBlendMode
+                  handler={this.mixBlendModeChange}
+                  mode={this.state.mixBlendMode}
+                />
+              </ToolsPanel>
+            </Item>
+          </OuterContainer>
+        </HotKeys>
       </div>
     );
   }

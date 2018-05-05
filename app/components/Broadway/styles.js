@@ -114,10 +114,11 @@ export const Row = styled.div`
 
 // The grid items
 // Position relative to contain debugging marks
+// Z-index is -1 by default (TODO: Revisit z-indexes)
 export const Item = styled.div`
-  grid-area: ${props => (props.area ? props.area : null)};
+  ${props => (props.area ? `grid-area: ${props.area};` : null)}
   position: relative;
-  z-index: -1;
+  z-index: ${props => (props.zIndex ? props.zIndex : -1)};
 `
 
 export const Centered = styled.div`
@@ -188,22 +189,7 @@ export const Button = styled.a`
   }
 `
 
-export const Console = styled.div`
-  width: 100%;
-  min-height: 50px;
-  max-height: 100px;
-  overflow-y: scroll;
-  font-size: 6px;
-  background-color: ${colors.clay};
-  color: ${colors.conifer};
-  margin-bottom: 8px;
-`
-
 export const ToolsPanel = styled.div`
-  position: fixed;
-  width: 100%;
-  left: 0;
-  bottom: 0;
   background-color: white;
   font-size: 8px;
   padding: 8px;
@@ -231,3 +217,27 @@ export const font = {
   caption: `400 13px/16px ${fontStack.primary};`,
   mono: `400 13px/16px ${fontStack.mono};`,
 }
+
+
+export const OuterContainer = styled.div`
+  display: grid;
+  height: 100vh;
+  grid-template-areas:
+  'header header'
+  'main sidebar'
+  'footer footer';
+  & > * {
+    border: 1px solid aqua;
+  }
+`;
+
+
+export const Console = styled.div`
+  overflow-y: auto;
+  font: ${font.mono};
+  background-color: ${colors.clay};
+  color: ${colors.conifer};
+  margin-bottom: 8px;
+  height: 100%;
+  width: 400px;
+`
