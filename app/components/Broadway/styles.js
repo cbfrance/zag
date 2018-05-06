@@ -254,15 +254,25 @@ const DotBackground = styled.div`
     background-size: ${dotSpace} ${dotSpace};
 `;
 
+export const NativeButton = styled.button`
+  font-size: 12px; 
+  margin: 0.5em 0.3em 0.5em 0;`
+
 // Outer layout (app chrome)
 //
+
+const size = {
+  'header': '100px',
+  'sidebarRight': '300px',
+  'sidebarLeft': '200px',
+}
 export const OuterContainer = DotBackground.extend`
   display: grid;
-  min-height: 100vh;
-  align-items: start;
-  > * {
-    border: 1px solid ${colors.lightgrey};
-  }
+  grid-template-columns: 1fr auto 2fr;
+  grid-template-rows: 1fr auto;
+  height: 100vh;
+  overflow: hidden;
+  background-color: white;
   grid-template-areas:
     'header header header'
     'sidebarLeft main sidebarRight'
@@ -270,13 +280,13 @@ export const OuterContainer = DotBackground.extend`
 
 export const SidebarLeft = styled.div`
   grid-area: sidebarLeft;
-  width: 200px;
+  min-width: ${size.sidebarLeft};
   border-right: 1px solid ${colors.lightgrey};
 `;
 
 export const SidebarRight = styled.div`
   grid-area: sidebarRight;
-  width: 200px;
+  min-width: ${size.sidebarRight};
   border-left: 1px solid ${colors.lightgrey};
 `;
 
@@ -286,10 +296,10 @@ export const Main = styled.div`
 
 export const Header = styled.div`
   grid-area: header;  
-  height: 100px;
+  height: ${size.header};
   border-bottom: 1px solid ${colors.lightgrey};
   display: flex; 
   flex-align: center;
-  padding: 1em;
+  padding: 16px;
 `;
 

@@ -31,11 +31,8 @@ import {
   Header, 
   SidebarRight, 
   SidebarLeft,
+  NativeButton,
 } from "../components/Broadway/styles";
-
-const NativeButton = styled.button`
-  font-size: 12px; 
-  margin: 0.5em 0.3em;`;
 
 
 injectGlobal`

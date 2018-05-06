@@ -29,7 +29,7 @@ Zag is an experimental project for rendering large CSS grids using React and Ele
 
 ## Screenshot
 
-![Electron Boilerplate Demo](https://cloud.githubusercontent.com/assets/3382565/10557547/b1f07a4e-74e3-11e5-8d27-79ab6947d429.gif)
+![Electron Boilerplate Demo](https://user-images.githubusercontent.com/7366/39668756-f7e85946-508b-11e8-9588-ee1e0c6c9a1d.gif)
 
 ## Install
 
