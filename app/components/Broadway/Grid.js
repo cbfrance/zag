@@ -1,8 +1,7 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react'
 import EphemeralRectangle from './EphemeralRectangle'
-import { gridItems } from './gridItems.js'
+import { gridItems } from './gridItems'
 import {
   GridPrimary,
   Item,
@@ -12,7 +11,7 @@ import {
 } from './styles'
 import { topLeftCoordinates, bottomRightCoordinates } from './helpers'
 
-var shortid = require('shortid')
+// var shortid = require('shortid')
 
 class Grid extends React.Component {
   render() {
@@ -29,10 +28,10 @@ class Grid extends React.Component {
         }}
       >
         {this.props.visibleMarks && [
-          <TopLeftMark key={index + 'a'}>
+          <TopLeftMark key={`${index}a`}>
             {topLeftCoordinates(item.area)}
           </TopLeftMark>,
-          <BottomRightMark key={index + 'b'}>
+          <BottomRightMark key={`${index}b`}>
             {bottomRightCoordinates(item.area)}
           </BottomRightMark>
         ]}
@@ -76,11 +75,15 @@ class Grid extends React.Component {
 
 Grid.propTypes = {
   handleMouseMove: PropTypes.func,
+  handleMouseDown: PropTypes.func,
   handleMouseUp: PropTypes.func,
   onMouseMove: PropTypes.func,
   firstCoordinates: PropTypes.string,
   secondCoordinates: PropTypes.string,
   visibleMarks: PropTypes.bool,
+  drawing: PropTypes.bool,
+  visibleGridItems: PropTypes.bool,
+  mixBlendMode: PropTypes.string,
 };
 
 

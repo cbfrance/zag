@@ -242,8 +242,8 @@ export const Console = styled.div`
 
 
 // Dot background
-const dotSize = "2px";
-const dotSpace = "22px";
+const dotSize = '2px';
+const dotSpace = '22px';
 
 const DotBackground = styled.div`
   background-color: ${colors.black};
@@ -262,9 +262,9 @@ export const NativeButton = styled.button`
 //
 
 const size = {
-  'header': '100px',
-  'sidebarRight': '300px',
-  'sidebarLeft': '200px',
+  header: '100px',
+  sidebarRight: '300px',
+  sidebarLeft: '200px',
 }
 export const OuterContainer = DotBackground.extend`
   display: grid;

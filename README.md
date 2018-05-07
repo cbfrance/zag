@@ -2,6 +2,9 @@
 
 Zag is an experimental project for rendering large CSS grids using React and Electron. Using electon-react-boilerplate.
 
+![Zag](https://user-images.githubusercontent.com/7366/39668756-f7e85946-508b-11e8-9588-ee1e0c6c9a1d.gif)
+
+
 ## electron-react-boilerplate
 
 ### A Boilerplate for Scalable Cross-Platform Desktop Apps
@@ -26,10 +29,6 @@ Zag is an experimental project for rendering large CSS grids using React and Ele
 [![Yarn](/internals/img/yarn-padded-90.png)](https://yarnpkg.com/)
 
 [Electron](http://electron.atom.io/) application boilerplate based on [React](https://facebook.github.io/react/), [Redux](https://github.com/reactjs/redux), [React Router](https://github.com/reactjs/react-router), [Webpack](http://webpack.github.io/docs/), [React Transform HMR](https://github.com/gaearon/react-transform-hmr) for rapid application development.
-
-## Screenshot
-
-![Electron Boilerplate Demo](https://user-images.githubusercontent.com/7366/39668756-f7e85946-508b-11e8-9588-ee1e0c6c9a1d.gif)
 
 ## Install
 
